@@ -22,9 +22,9 @@ mismo.
 	- Clientes Plata, No tienen acceso a tarjeta de crédito.
 	- Clientes Oro, acceden a la tarjeta de crédito Credix con límite de crédito
 250000
-	- Clientes Platino, acceden a la tarjeta de crédito Premium con límite de crédito
-500000
-Consideraciones:
+	- Clientes Platino, acceden a la tarjeta de crédito Premium con límite de crédito 500000.
+
+### Consideraciones:
 El programa debe permitir realizar las siguientes operaciones:
 - Registrar las transacciones generadas por Clientes (Extracciones y/o Depósitos).
 - Realizar las siguiente consultas:
