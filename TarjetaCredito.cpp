@@ -1,4 +1,4 @@
-#include "TarjetaDeCredito.h"
+#include "TarjetaCredito.h"
 #include <iostream>
 
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 TarjetaCredito::TarjetaCredito() : tipoTarjeta("Ninguna"), limite(0.0) {}
 
 // Constructor con parametros
-TarjetaCredito::TarjetaCredito(string tipoTarjeta, double limite)
+TarjetaCredito::TarjetaCredito(std::string tipoTarjeta, double limite)
 	: tipoTarjeta(tipoTarjeta), limite(limite) {}
 
 // Metodo para mostrar la tarjeta
@@ -16,11 +16,11 @@ void TarjetaCredito::mostrarTarjeta() {
 }
 
 // Getters y Setters
-string TarjetaCredito::getTipoTarjeta() const {
+std::string TarjetaCredito::getTipoTarjeta() const {
 	return tipoTarjeta;
 }
 
-void TarjetaCredito::setTipoTarjeta(const string &tipoTarjeta) {
+void TarjetaCredito::setTipoTarjeta(std::string tipoTarjeta) {
 	this->tipoTarjeta = tipoTarjeta;
 }
 

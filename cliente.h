@@ -16,9 +16,9 @@ public:
 	int getDni() const;
 	void setDni(int dni);
 	std::string getNombre() const;
-	void setNombre(const std::string &nombre);
+	void setNombre(std::string nombre);
 	std::string getTipoCliente() const;
-	void setTipoCliente(const std::string &tipoCliente);
+	void setTipoCliente(std::string tipoCliente);
 	int getAnioIngreso() const;
 	void setAnioIngreso(int anioIngreso);
 	bool isActivo() const;

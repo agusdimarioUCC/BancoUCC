@@ -19,8 +19,8 @@ add_executable(BancoUCC
         banco.cpp
         banco.h
         main.cpp
-        TarjetaDeCredito.h
-        TarjetaDeCredito.cpp
+        TarjetaCredito.h
+        TarjetaCredito.cpp
 )
 
 # Incluir directorios de encabezados

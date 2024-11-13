@@ -11,7 +11,7 @@ public:
 
 	// Getters y Setters
 	std::string getTipoTarjeta() const;
-	void setTipoTarjeta(const std::string &tipoTarjeta);
+	void setTipoTarjeta(std::string tipoTarjeta);
 	double getLimite() const;
 	void setLimite(double limite);
 

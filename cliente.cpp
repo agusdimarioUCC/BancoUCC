@@ -7,7 +7,7 @@ using namespace std;
 Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) {}
 
 // Constructor
-Cliente::Cliente(int dni, string nombre, string tipoCliente, int anioIngreso)
+Cliente::Cliente(int dni, std::string nombre, std::string tipoCliente, int anioIngreso)
     : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true) {
     // Inicializar las cuentas de ahorro en pesos y dolares
     cajasDeAhorro[0] = Cuenta(0.0, "Pesos");
@@ -24,19 +24,19 @@ void Cliente::setDni(int dni) {
     this->dni = dni;
 }
 
-string Cliente::getNombre() const {
+std::string Cliente::getNombre() const {
     return nombre;
 }
 
-void Cliente::setNombre(const string &nombre) {
+void Cliente::setNombre(std::string nombre) {
     this->nombre = nombre;
 }
 
-string Cliente::getTipoCliente() const {
+std::string Cliente::getTipoCliente() const {
     return tipoCliente;
 }
 
-void Cliente::setTipoCliente(const string &tipoCliente) {
+void Cliente::setTipoCliente(std::string tipoCliente) {
     this->tipoCliente = tipoCliente;
 }
 
@@ -56,7 +56,6 @@ void Cliente::setActivo(bool activo) {
     this->activo = activo;
 }
 
-// Metodo para realizar una transaccion
 void Cliente::realizarTransaccion() {
     int opcionCuenta;
     cout << "Seleccione la cuenta:" << endl;
@@ -89,17 +88,20 @@ void Cliente::realizarTransaccion() {
     }
 
     // Obtener fecha
-    string fecha;
-    cout << "Ingrese la fecha (DD/MM/AAAA): ";
-    cin.ignore();
-    getline(cin, fecha);
+    int dia, mes, anio;
+    cout << "Ingrese el dia: ";
+    cin >> dia;
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+    cout << "Ingrese el anio: ";
+    cin >> anio;
 
     if (opcionTransaccion == 1) {
-        cajasDeAhorro[indiceCuenta].depositar(monto, fecha);
+        cajasDeAhorro[indiceCuenta].depositar(monto, dia, mes, anio);
         cout << "Deposito realizado exitosamente." << endl;
     } else if (opcionTransaccion == 2) {
         if (cajasDeAhorro[indiceCuenta].getSaldo() >= monto) {
-            cajasDeAhorro[indiceCuenta].extraer(monto, fecha);
+            cajasDeAhorro[indiceCuenta].extraer(monto, dia, mes, anio);
             cout << "Extraccion realizada exitosamente." << endl;
         } else {
             cout << "Saldo insuficiente para realizar la extraccion." << endl;
@@ -109,27 +111,26 @@ void Cliente::realizarTransaccion() {
     }
 }
 
-// Metodo para consultar transacciones
 void Cliente::consultarTransacciones() {
     int opcionCuenta;
-    cout << "Seleccione la cuenta:" << endl;
-    cout << "1. Caja de Ahorro en Pesos" << endl;
-    cout << "2. Caja de Ahorro en Dolares" << endl;
-    cout << "Seleccione una opcion: ";
+    cout << "Seleccione la cuenta:\n";
+    cout << "1. Caja de Ahorro en Pesos\n";
+    cout << "2. Caja de Ahorro en Dólares\n";
+    cout << "Seleccione una opción: ";
     cin >> opcionCuenta;
 
     if (opcionCuenta != 1 && opcionCuenta != 2) {
-        cout << "Opcion no valida." << endl;
+        cout << "Opción no válida.\n";
         return;
     }
 
-    int indiceCuenta = opcionCuenta - 1;
+    Cuenta &cuenta = cajasDeAhorro[opcionCuenta - 1];
 
     int criterio;
-    cout << "Seleccione el criterio de consulta:" << endl;
-    cout << "1. Mes especifico" << endl;
-    cout << "2. Anio especifico" << endl;
-    cout << "3. Todas las operaciones" << endl;
+    cout << "Seleccione el criterio de consulta:\n";
+    cout << "1. Mes específico\n";
+    cout << "2. Anio especifico\n";
+    cout << "3. Todas las operaciones\n";
     cout << "Seleccione una opcion: ";
     cin >> criterio;
 
@@ -139,24 +140,24 @@ void Cliente::consultarTransacciones() {
         cin >> mes;
         cout << "Ingrese el anio: ";
         cin >> anio;
-        cajasDeAhorro[indiceCuenta].mostrarTransaccionesPorMes(mes, anio);
+        cuenta.mostrarTransaccionesPorMes(mes, anio);
     } else if (criterio == 2) {
         int anio;
-        cout << "Ingrese el anio: ";
+        cout << "Ingrese el año: ";
         cin >> anio;
-        cajasDeAhorro[indiceCuenta].mostrarTransaccionesPorAnio(anio);
+        cuenta.mostrarTransaccionesPorAnio(anio);
     } else if (criterio == 3) {
-        cajasDeAhorro[indiceCuenta].mostrarTransacciones();
+        cuenta.mostrarTransacciones();
     } else {
-        cout << "Criterio no valido." << endl;
+        cout << "Criterio no valido.\n";
     }
 }
 
-// Metodo para consultar informacion de las cuentas
 void Cliente::consultarCuenta() {
     for (int i = 0; i < 2; ++i) {
-        cout << "Cuenta: " << cajasDeAhorro[i].getTipoCuenta() << endl;
-        cout << "Saldo: $" << cajasDeAhorro[i].getSaldo() << endl;
-        cout << "------------------------" << endl;
+        Cuenta &cuenta = cajasDeAhorro[i];
+        cout << "Cuenta: " << cuenta.getTipoCuenta() << "\n";
+        cout << "Saldo: $" << cuenta.getSaldo() << "\n";
+        cout << "------------------------\n";
     }
 }
