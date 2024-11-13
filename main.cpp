@@ -1,25 +1,52 @@
+#include <iostream>
 #include "Banco.h"
+
 using namespace std;
 
 int main() {
-    Banco banco;
+	Banco bancoUCC;
+	int opcion;
 
-    //TODO reemplazar todo ésto por una interfaz de consola en la que pedimos datos al usuario
+	do {
+		cout << "--- Menu de Gestion Banco UCC ---" << endl;
+		cout << "1. Registrar Cliente" << endl;
+		cout << "2. Cambiar Estado Cliente" << endl;
+		cout << "3. Mostrar Detalle Cliente" << endl;
+		cout << "4. Listar Clientes" << endl;
+		cout << "5. Realizar Transaccion" << endl;
+		cout << "6. Consultar Transacciones" << endl;
+		cout << "0. Salir" << endl;
+		cout << "Seleccione una opcion: ";
+		cin >> opcion;
 
-    Cliente cliente1("12345678", "Juan Perez", "Oro", 2020);
-    cliente1.agregarCuenta("Pesos", 10000);
-    cliente1.agregarCuenta("Dolares", 5000);
-    cliente1.realizarTransaccion("Pesos", "Deposito", 2000, "2024-10-21");
-    cliente1.realizarTransaccion("Dolares", "Extraccion", 1000, "2024-10-21");
-    banco.agregarCliente(cliente1);
+		switch (opcion) {
+		case 1:
+			bancoUCC.registrarCliente();
+			break;
+		case 2:
+			bancoUCC.cambiarEstadoCliente();
+			break;
+		case 3:
+			bancoUCC.mostrarCliente();
+			break;
+		case 4:
+			bancoUCC.listarClientes();
+			break;
+		case 5:
+			bancoUCC.realizarTransaccion();
+			break;
+		case 6:
+			bancoUCC.consultarTransacciones();
+			break;
+		case 0:
+			cout << "Saliendo del sistema..." << endl;
+			break;
+		default:
+			cout << "Opcion no valida." << endl;
+			break;
+		}
+		cout << endl;
+	} while (opcion != 0);
 
-    Cliente cliente2("87654321", "Maria Gomez", "Platino", 2018);
-    cliente2.agregarCuenta("Pesos", 15000);
-    cliente2.agregarCuenta("Dolares", 10000);
-    cliente2.realizarTransaccion("Pesos", "Deposito", 5000, "2024-10-21");
-    banco.agregarCliente(cliente2);
-
-    banco.mostrarClientes();
-
-    return 0;
+	return 0;
 }

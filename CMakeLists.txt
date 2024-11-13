@@ -10,11 +10,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Añadir los archivos fuente del proyecto
 add_executable(BancoUCC
-    main.cpp
-    Transaccion.cpp
-    Cuenta.cpp
-    Cliente.cpp
-    Banco.cpp
+        cliente.cpp
+        cliente.h
+        cuenta.cpp
+        cuenta.h
+        transaccion.cpp
+        transaccion.h
+        banco.cpp
+        banco.h
+        main.cpp
+        TarjetaDeCredito.h
+        TarjetaDeCredito.cpp
 )
 
 # Incluir directorios de encabezados
