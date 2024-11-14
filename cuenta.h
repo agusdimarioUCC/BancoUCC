@@ -1,6 +1,3 @@
-#ifndef CUENTA_H
-#define CUENTA_H
-
 #include "Transaccion.h"
 #include <string>
 
@@ -8,8 +5,8 @@ class Cuenta {
 public:
 	Cuenta();
 	Cuenta(double saldoInicial, std::string tipoCuenta);
-	void depositar(double monto, std::string fecha);
-	void extraer(double monto, std::string fecha);
+	void depositar(double monto, int dia, int mes, int anio);
+	void extraer(double monto, int dia, int mes, int anio);
 
 	void mostrarTransacciones();
 	void mostrarTransaccionesPorMes(int mes, int anio);
@@ -17,7 +14,7 @@ public:
 
 	// Getters y Setters
 	std::string getTipoCuenta() const;
-	void setTipoCuenta(const std::string &tipoCuenta);
+	void setTipoCuenta(std::string tipoCuenta);
 	double getSaldo() const;
 	void setSaldo(double saldo);
 
@@ -28,4 +25,3 @@ private:
 	int numTransacciones; // Contador de transacciones
 };
 
-#endif // CUENTA_H

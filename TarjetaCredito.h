@@ -1,6 +1,3 @@
-#ifndef TARJETACREDITO_H
-#define TARJETACREDITO_H
-
 #include <string>
 using namespace std;
 
@@ -19,5 +16,3 @@ public:
 	double getLimite() const;
 	void setLimite(double limite);
 };
-
-#endif // TARJETACREDITO_H

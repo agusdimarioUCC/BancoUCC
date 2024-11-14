@@ -3,27 +3,27 @@
 
 using namespace std;
 
-// Constructor por defecto
-Cuenta::Cuenta() : saldo(0.0), tipoCuenta("Desconocida"), numTransacciones(0) {}
 
-// Constructor con parametros
+//bob el constructor
+Cuenta::Cuenta() : saldo(0.0), tipoCuenta("Desconocida"), numTransacciones(0) {}
 Cuenta::Cuenta(double saldoInicial, string tipoCuenta)
     : saldo(saldoInicial), tipoCuenta(tipoCuenta), numTransacciones(0) {}
 
-// Metodos de operaciones con transacciones
-void Cuenta::depositar(double monto, string fecha) {
+
+// Métodos de operaciones con transacciones
+void Cuenta::depositar(double monto, int dia, int mes, int anio) {
     saldo += monto;
     if (numTransacciones < 100) {
-        transacciones[numTransacciones++] = Transaccion("Deposito", monto, fecha);
+        transacciones[numTransacciones++] = Transaccion("Deposito", monto, dia, mes, anio);
     } else {
         cout << "No se pueden registrar mas transacciones en esta cuenta." << endl;
     }
 }
 
-void Cuenta::extraer(double monto, string fecha) {
-    saldo -= monto;  // La verificacion de saldo se hace antes
+void Cuenta::extraer(double monto, int dia, int mes, int anio) {
+    saldo -= monto;  // La verificación de saldo se hace antes
     if (numTransacciones < 100) {
-        transacciones[numTransacciones++] = Transaccion("Extraccion", monto, fecha);
+        transacciones[numTransacciones++] = Transaccion("Extraccion", monto, dia, mes, anio);
     } else {
         cout << "No se pueden registrar mas transacciones en esta cuenta." << endl;
     }
@@ -42,9 +42,7 @@ void Cuenta::mostrarTransacciones() {
 void Cuenta::mostrarTransaccionesPorMes(int mes, int anio) {
     bool encontrado = false;
     for (int i = 0; i < numTransacciones; ++i) {
-        int transMes = transacciones[i].getMes();
-        int transAnio = transacciones[i].getAnio();
-        if (transMes == mes && transAnio == anio) {
+        if (transacciones[i].getMes() == mes && transacciones[i].getAnio() == anio) {
             transacciones[i].mostrarTransaccion();
             encontrado = true;
         }
@@ -57,8 +55,7 @@ void Cuenta::mostrarTransaccionesPorMes(int mes, int anio) {
 void Cuenta::mostrarTransaccionesPorAnio(int anio) {
     bool encontrado = false;
     for (int i = 0; i < numTransacciones; ++i) {
-        int transAnio = transacciones[i].getAnio();
-        if (transAnio == anio) {
+        if (transacciones[i].getAnio() == anio) {
             transacciones[i].mostrarTransaccion();
             encontrado = true;
         }
@@ -73,7 +70,7 @@ string Cuenta::getTipoCuenta() const {
     return tipoCuenta;
 }
 
-void Cuenta::setTipoCuenta(const string &tipoCuenta) {
+void Cuenta::setTipoCuenta(string tipoCuenta) {
     this->tipoCuenta = tipoCuenta;
 }
 

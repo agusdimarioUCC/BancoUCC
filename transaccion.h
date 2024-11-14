@@ -1,5 +1,3 @@
-#ifndef TRANSACCION_H
-#define TRANSACCION_H
 #include <string>
 using namespace std;
 
@@ -29,5 +27,3 @@ public:
 	void setAnio(int anio);
 
 };
-
-#endif // TRANSACCION_H
