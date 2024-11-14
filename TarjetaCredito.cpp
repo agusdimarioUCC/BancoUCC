@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 TarjetaCredito::TarjetaCredito() : tipoTarjeta("Ninguna"), limite(0.0) {}
-
 TarjetaCredito::TarjetaCredito(string tipoTarjeta, double limite)
 	: tipoTarjeta(tipoTarjeta), limite(limite) {}
 
@@ -18,7 +17,7 @@ double TarjetaCredito::getLimite()  {
 	return limite;
 }
 
-void TarjetaCredito::setLimite(double limite) {
+void TarjetaCredito::setLimite(double limite) {//esto queda sin usar
 	this->limite = limite;
 }
 void TarjetaCredito::mostrarTarjeta() {
