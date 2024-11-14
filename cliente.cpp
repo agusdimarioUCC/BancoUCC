@@ -4,7 +4,6 @@
 using namespace std;
 
 Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) ,tarjeta(){}
-
 Cliente::Cliente(int dni, string nombre, string tipoCliente, int anioIngreso)
     : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true),tarjeta() {
     // Inicializar las cuentas de ahorro en pesos y dolares
@@ -84,7 +83,6 @@ void Cliente::realizarTransaccion() {
         return;
     }
 
-    // Obtener fecha
     int dia, mes, anio;
     cout << "Ingrese el dia: ";
     cin >> dia;
@@ -126,7 +124,7 @@ void Cliente::consultarTransacciones() {
     cout << "Seleccione el criterio de consulta:"<<endl;
     cout << "1. Mes específico"<<endl;
     cout << "2. Anio especifico"<<endl;
-    cout << "3. Todas las operaciones\n";
+    cout << "3. Todas las operaciones"<<endl;
     cout << "Seleccione una opcion: ";
     cin >> criterio;
 
@@ -145,7 +143,7 @@ void Cliente::consultarTransacciones() {
     } else if (criterio == 3) {
         cuenta.mostrarTransacciones();
     } else {
-        cout << "Criterio no valido.\n";
+        cout << "Criterio no valido."<<endl;
     }
 }
 
@@ -154,7 +152,7 @@ void Cliente::consultarCuenta() {
         Cuenta cuenta = cajasDeAhorro[i];
         cout << "Cuenta: " << cuenta.getTipoCuenta() << "\n";
         cout << "Saldo: $" << cuenta.getSaldo() << "\n";
-        cout << "------------------------\n";
+        cout << "------------------------"<<endl;
     }
 }
 void Cliente::asignarTarjetaCredito() {

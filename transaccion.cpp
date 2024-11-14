@@ -3,10 +3,8 @@
 
 using namespace std;
 
-// Constructor por defecto
 Transaccion::Transaccion() : tipo(""), monto(0.0), dia(0), mes(0), anio(0) {}
 
-// Constructor con parámetros
 Transaccion::Transaccion(string tipo, double monto, int dia, int mes, int anio)
 	: tipo(tipo), monto(monto), dia(dia), mes(mes), anio(anio) {}
 
@@ -14,7 +12,6 @@ void Transaccion::mostrarTransaccion() {
 	cout << tipo << " de $" << monto << " el dia " << dia << "/" << mes << "/" << anio << endl;
 }
 
-// Getters y Setters
 string Transaccion::getTipo()  {
 	return tipo;
 }

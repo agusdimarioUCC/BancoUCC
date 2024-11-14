@@ -12,16 +12,14 @@ public:
 	void mostrarTransaccionesPorMes(int mes, int anio);
 	void mostrarTransaccionesPorAnio(int anio);
 
-	// Getters y Setters
 	string getTipoCuenta() ;
 	void setTipoCuenta(string tipoCuenta);
 	double getSaldo() ;
 	void setSaldo(double saldo);
 
 private:
-	string tipoCuenta; // "Pesos" o "Dolares"
+	string tipoCuenta; //si son solo dos, no podria ser un bool?
 	double saldo;
-	Transaccion transacciones[100];  // Array fijo de transacciones
-	int numTransacciones; // Contador de transacciones
+	Transaccion transacciones[10]; //maximo 10 para no explotar la memoria
+	int numTransacciones;
 };
-

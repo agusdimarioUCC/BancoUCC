@@ -65,7 +65,6 @@ void Cuenta::mostrarTransaccionesPorAnio(int anio) {
     }
 }
 
-// Getters y Setters
 string Cuenta::getTipoCuenta()  {
     return tipoCuenta;
 }

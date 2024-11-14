@@ -14,7 +14,6 @@ public:
 	Transaccion(string tipo, double monto, int dia, int mes, int anio);
 	void mostrarTransaccion();
 
-	// Getters y Setters
 	string getTipo();
 	void setTipoTransaccion(string tipoTransaccion);
 	double getMonto() ;

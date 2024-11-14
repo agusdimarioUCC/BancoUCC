@@ -12,7 +12,6 @@ public:
 	void asignarTarjetaCredito();
 	void mostrarTarjetaCredito();
 
-	// Getters y Setters
 	int getDni() ;
 	void setDni(int dni);
 	string getNombre() ;

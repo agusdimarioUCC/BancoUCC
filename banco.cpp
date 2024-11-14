@@ -96,7 +96,6 @@ void Banco::listarClientes() {
     }
 }
 
-// Metodo para realizar una transaccion para un cliente
 void Banco::realizarTransaccion() {
     int dni;
     cout << "Ingrese el DNI del cliente: ";
@@ -108,7 +107,7 @@ void Banco::realizarTransaccion() {
             cout << "El cliente esta dado de baja y no puede realizar transacciones." << endl;
             return;
         }
-        clientes[indice].realizarTransaccion();
+        clientes[indice].realizarTransaccion();//llamamos al metodo de cliente
     } else {
         cout << "Cliente no encontrado." << endl;
     }
