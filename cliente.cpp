@@ -1,5 +1,5 @@
-#include "Cliente.h"
 #include <iostream>
+#include "Cliente.h"
 
 using namespace std;
 
@@ -7,7 +7,7 @@ using namespace std;
 Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) {}
 
 // Constructor
-Cliente::Cliente(int dni, std::string nombre, std::string tipoCliente, int anioIngreso)
+Cliente::Cliente(int dni, string nombre, string tipoCliente, int anioIngreso)
     : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true) {
     // Inicializar las cuentas de ahorro en pesos y dolares
     cajasDeAhorro[0] = Cuenta(0.0, "Pesos");
@@ -16,7 +16,7 @@ Cliente::Cliente(int dni, std::string nombre, std::string tipoCliente, int anioI
 
 // Getters y Setters
 
-int Cliente::getDni() const {
+int Cliente::getDni()  {
     return dni;
 }
 
@@ -24,15 +24,15 @@ void Cliente::setDni(int dni) {
     this->dni = dni;
 }
 
-std::string Cliente::getNombre() const {
+string Cliente::getNombre()  {
     return nombre;
 }
 
-void Cliente::setNombre(std::string nombre) {
+void Cliente::setNombre(string nombre) {
     this->nombre = nombre;
 }
 
-std::string Cliente::getTipoCliente() const {
+std::string Cliente::getTipoCliente()  {
     return tipoCliente;
 }
 
@@ -40,7 +40,7 @@ void Cliente::setTipoCliente(std::string tipoCliente) {
     this->tipoCliente = tipoCliente;
 }
 
-int Cliente::getAnioIngreso() const {
+int Cliente::getAnioIngreso()  {
     return anioIngreso;
 }
 
@@ -48,7 +48,7 @@ void Cliente::setAnioIngreso(int anioIngreso) {
     this->anioIngreso = anioIngreso;
 }
 
-bool Cliente::isActivo() const {
+bool Cliente::isActivo()  {
     return activo;
 }
 
@@ -124,7 +124,7 @@ void Cliente::consultarTransacciones() {
         return;
     }
 
-    Cuenta &cuenta = cajasDeAhorro[opcionCuenta - 1];
+    Cuenta cuenta = cajasDeAhorro[opcionCuenta - 1];
 
     int criterio;
     cout << "Seleccione el criterio de consulta:\n";
@@ -155,7 +155,7 @@ void Cliente::consultarTransacciones() {
 
 void Cliente::consultarCuenta() {
     for (int i = 0; i < 2; ++i) {
-        Cuenta &cuenta = cajasDeAhorro[i];
+        Cuenta cuenta = cajasDeAhorro[i];
         cout << "Cuenta: " << cuenta.getTipoCuenta() << "\n";
         cout << "Saldo: $" << cuenta.getSaldo() << "\n";
         cout << "------------------------\n";

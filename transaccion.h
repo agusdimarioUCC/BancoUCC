@@ -15,15 +15,15 @@ public:
 	void mostrarTransaccion();
 
 	// Getters y Setters
-	string getTipo() const;
+	string getTipo();
 	void setTipoTransaccion(string tipoTransaccion);
-	double getMonto() const;
+	double getMonto() ;
 	void setMonto(double monto);
-	int getDia() const;
+	int getDia() ;
 	void setDia(int dia);
-	int getMes() const;
+	int getMes() ;
 	void setMes(int mes);
-	int getAnio() const;
+	int getAnio() ;
 	void setAnio(int anio);
 
 };

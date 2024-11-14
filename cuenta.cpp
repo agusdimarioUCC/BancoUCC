@@ -66,7 +66,7 @@ void Cuenta::mostrarTransaccionesPorAnio(int anio) {
 }
 
 // Getters y Setters
-string Cuenta::getTipoCuenta() const {
+string Cuenta::getTipoCuenta()  {
     return tipoCuenta;
 }
 
@@ -74,7 +74,7 @@ void Cuenta::setTipoCuenta(string tipoCuenta) {
     this->tipoCuenta = tipoCuenta;
 }
 
-double Cuenta::getSaldo() const {
+double Cuenta::getSaldo()  {
     return saldo;
 }
 

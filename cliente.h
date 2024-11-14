@@ -13,15 +13,15 @@ public:
 	void consultarCuenta();
 
 	// Getters y Setters
-	int getDni() const;
+	int getDni() ;
 	void setDni(int dni);
-	std::string getNombre() const;
+	std::string getNombre() ;
 	void setNombre(std::string nombre);
-	std::string getTipoCliente() const;
+	std::string getTipoCliente() ;
 	void setTipoCliente(std::string tipoCliente);
-	int getAnioIngreso() const;
+	int getAnioIngreso() ;
 	void setAnioIngreso(int anioIngreso);
-	bool isActivo() const;
+	bool isActivo() ;
 	void setActivo(bool activo);
 
 private:

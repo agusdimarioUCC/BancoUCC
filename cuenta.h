@@ -13,9 +13,9 @@ public:
 	void mostrarTransaccionesPorAnio(int anio);
 
 	// Getters y Setters
-	std::string getTipoCuenta() const;
+	std::string getTipoCuenta() ;
 	void setTipoCuenta(std::string tipoCuenta);
-	double getSaldo() const;
+	double getSaldo() ;
 	void setSaldo(double saldo);
 
 private:

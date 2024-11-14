@@ -1,6 +1,3 @@
-#ifndef BANCO_H
-#define BANCO_H
-
 #include "Cliente.h"
 
 class Banco {
@@ -21,5 +18,3 @@ private:
 
 	int buscarClientePorDNI(int dni);  // Metodo auxiliar para buscar un cliente
 };
-
-#endif // BANCO_H

@@ -16,7 +16,7 @@ void TarjetaCredito::mostrarTarjeta() {
 }
 
 // Getters y Setters
-string TarjetaCredito::getTipoTarjeta() const {
+string TarjetaCredito::getTipoTarjeta()  {
 	return tipoTarjeta;
 }
 
@@ -24,7 +24,7 @@ void TarjetaCredito::setTipoTarjeta(string tipoTarjeta) {
 	this->tipoTarjeta = tipoTarjeta;
 }
 
-double TarjetaCredito::getLimite() const {
+double TarjetaCredito::getLimite()  {
 	return limite;
 }
 

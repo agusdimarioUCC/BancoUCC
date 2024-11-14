@@ -15,7 +15,7 @@ void Transaccion::mostrarTransaccion() {
 }
 
 // Getters y Setters
-std::string Transaccion::getTipo() const {
+std::string Transaccion::getTipo()  {
 	return tipo;
 }
 
@@ -23,7 +23,7 @@ void Transaccion::setTipoTransaccion(std::string tipoTransaccion) {
 	this->tipo = tipoTransaccion;
 }
 
-double Transaccion::getMonto() const {
+double Transaccion::getMonto()  {
 	return monto;
 }
 
@@ -31,7 +31,7 @@ void Transaccion::setMonto(double monto) {
 	this->monto = monto;
 }
 
-int Transaccion::getDia() const {
+int Transaccion::getDia()  {
 	return dia;
 }
 
@@ -39,7 +39,7 @@ void Transaccion::setDia(int dia) {
 	this->dia = dia;
 }
 
-int Transaccion::getMes() const {
+int Transaccion::getMes()  {
 	return mes;
 }
 
@@ -47,7 +47,7 @@ void Transaccion::setMes(int mes) {
 	this->mes = mes;
 }
 
-int Transaccion::getAnio() const {
+int Transaccion::getAnio()  {
 	return anio;
 }
 

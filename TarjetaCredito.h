@@ -11,8 +11,8 @@ public:
 	void mostrarTarjeta();
 
 	// Getters y Setters
-	string getTipoTarjeta() const;
+	string getTipoTarjeta() ;
 	void setTipoTarjeta(string tipoTarjeta);
-	double getLimite() const;
+	double getLimite() ;
 	void setLimite(double limite);
 };
