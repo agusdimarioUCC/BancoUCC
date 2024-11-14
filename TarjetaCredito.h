@@ -2,22 +2,22 @@
 #define TARJETACREDITO_H
 
 #include <string>
+using namespace std;
 
 class TarjetaCredito {
+private:
+	string tipoTarjeta;  // "Credix" o "Premium"
+	double limite;
 public:
 	TarjetaCredito();
-	TarjetaCredito(std::string tipoTarjeta, double limite);
+	TarjetaCredito(string tipoTarjeta, double limite);
 	void mostrarTarjeta();
 
 	// Getters y Setters
-	std::string getTipoTarjeta() const;
-	void setTipoTarjeta(std::string tipoTarjeta);
+	string getTipoTarjeta() const;
+	void setTipoTarjeta(string tipoTarjeta);
 	double getLimite() const;
 	void setLimite(double limite);
-
-private:
-	std::string tipoTarjeta;  // "Credix" o "Premium"
-	double limite;
 };
 
 #endif // TARJETACREDITO_H
