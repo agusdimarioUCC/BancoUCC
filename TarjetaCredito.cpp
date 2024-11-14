@@ -7,7 +7,7 @@ using namespace std;
 TarjetaCredito::TarjetaCredito() : tipoTarjeta("Ninguna"), limite(0.0) {}
 
 // Constructor con parametros
-TarjetaCredito::TarjetaCredito(std::string tipoTarjeta, double limite)
+TarjetaCredito::TarjetaCredito(string tipoTarjeta, double limite)
 	: tipoTarjeta(tipoTarjeta), limite(limite) {}
 
 // Metodo para mostrar la tarjeta
@@ -16,11 +16,11 @@ void TarjetaCredito::mostrarTarjeta() {
 }
 
 // Getters y Setters
-std::string TarjetaCredito::getTipoTarjeta() const {
+string TarjetaCredito::getTipoTarjeta() const {
 	return tipoTarjeta;
 }
 
-void TarjetaCredito::setTipoTarjeta(std::string tipoTarjeta) {
+void TarjetaCredito::setTipoTarjeta(string tipoTarjeta) {
 	this->tipoTarjeta = tipoTarjeta;
 }
 
