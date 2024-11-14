@@ -77,7 +77,8 @@ void Banco::mostrarCliente() {
         cout << "Tipo de Cliente: " << cliente.getTipoCliente() << endl;
         cout << "Anio de Ingreso: " << cliente.getAnioIngreso() << endl;
         cout << "Estado: " << (cliente.isActivo() ? "Activo" : "Baja") << endl;
-        cliente.consultarCuenta();  // Mostrar informacion de las cuentas
+        cliente.consultarCuenta();
+        cliente.mostrarTarjetaCredito();
     } else {
         cout << "Cliente no encontrado." << endl;
     }

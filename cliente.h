@@ -1,16 +1,16 @@
-#ifndef CLIENTE_H
-#define CLIENTE_H
-
 #include <string>
 #include "Cuenta.h"
+#include "TarjetaCredito.h"
 
 class Cliente {
 public:
 	Cliente();
-	Cliente(int dni, std::string nombre, std::string tipoCliente, int anioIngreso);
+	Cliente(int dni, std::string nombre, string tipoCliente, int anioIngreso);
 	void realizarTransaccion();
 	void consultarTransacciones();
 	void consultarCuenta();
+	void asignarTarjetaCredito();
+	void mostrarTarjetaCredito();
 
 	// Getters y Setters
 	int getDni() ;
@@ -27,10 +27,9 @@ public:
 private:
 	int dni;
 	std::string nombre;
-	std::string tipoCliente; // "PLATA", "ORO", "PLATINO"
+	std::string tipoCliente;
 	int anioIngreso;
 	bool activo;
-	Cuenta cajasDeAhorro[2];  // Dos cuentas, en pesos y en dolares
+	Cuenta cajasDeAhorro[2];  // en pesos y en dolares
+	TarjetaCredito tarjeta;
 };
-
-#endif // CLIENTE_H

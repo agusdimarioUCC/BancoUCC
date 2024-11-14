@@ -4,14 +4,16 @@
 using namespace std;
 
 // Constructor por defecto
-Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) {}
+Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) ,tarjeta(){}
 
 // Constructor
 Cliente::Cliente(int dni, string nombre, string tipoCliente, int anioIngreso)
-    : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true) {
+    : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true),tarjeta() {
     // Inicializar las cuentas de ahorro en pesos y dolares
     cajasDeAhorro[0] = Cuenta(0.0, "Pesos");
     cajasDeAhorro[1] = Cuenta(0.0, "Dolares");
+    asignarTarjetaCredito();
+
 }
 
 // Getters y Setters
@@ -113,14 +115,14 @@ void Cliente::realizarTransaccion() {
 
 void Cliente::consultarTransacciones() {
     int opcionCuenta;
-    cout << "Seleccione la cuenta:\n";
-    cout << "1. Caja de Ahorro en Pesos\n";
-    cout << "2. Caja de Ahorro en Dólares\n";
+    cout << "Seleccione la cuenta:"<<endl;
+    cout << "1. Caja de Ahorro en Pesos"<<endl;
+    cout << "2. Caja de Ahorro en Dólares"<<endl;
     cout << "Seleccione una opción: ";
     cin >> opcionCuenta;
 
     if (opcionCuenta != 1 && opcionCuenta != 2) {
-        cout << "Opción no válida.\n";
+        cout << "Opción no válida."<<endl;
         return;
     }
 
@@ -160,4 +162,21 @@ void Cliente::consultarCuenta() {
         cout << "Saldo: $" << cuenta.getSaldo() << "\n";
         cout << "------------------------\n";
     }
+}
+void Cliente::asignarTarjetaCredito() {
+    if (tipoCliente == "ORO") {
+        tarjeta = TarjetaCredito("Credix", 250000.0);
+    }
+    else if (tipoCliente == "PLATINO") {
+        tarjeta = TarjetaCredito("Premium", 500000.0);
+    }
+    else {
+        tarjeta = TarjetaCredito(); // "Ninguna" y límite 0
+    }
+}
+
+void Cliente::mostrarTarjetaCredito() {
+    cout << "Tarjeta de Credito:" << endl;
+    tarjeta.mostrarTarjeta();
+    cout << "------------------------" << endl;
 }
