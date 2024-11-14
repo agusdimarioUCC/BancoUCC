@@ -25,5 +25,5 @@ add_executable(BancoUCC
 
 # Incluir directorios de encabezados
 target_include_directories(BancoUCC PUBLIC
-    "${PROJECT_SOURCE_DIR}"
+        "${PROJECT_SOURCE_DIR}"
 )

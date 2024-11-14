@@ -3,7 +3,7 @@ using namespace std;
 
 class Transaccion {
 private:
-	string tipo;  // "Deposito" o "Extraccion"
+	string tipoTransaccion;
 	double monto;
 	int dia;
 	int mes;
@@ -13,8 +13,6 @@ public:
 	Transaccion();
 	Transaccion(string tipo, double monto, int dia, int mes, int anio);
 	void mostrarTransaccion();
-
-	// Getters y Setters
 	string getTipo();
 	void setTipoTransaccion(string tipoTransaccion);
 	double getMonto() ;
