@@ -3,17 +3,18 @@
 class Banco {
 public:
 	Banco();
-	void registrarCliente();
-	void cambiarEstadoCliente();
-	void mostrarCliente();
-	void listarClientes();
+	void registrarCliente();      // Alta de cliente
+	void cambiarEstadoCliente();  // Cambiar estado del cliente (Activo a Baja)
+	void mostrarCliente();        // Detalle de un cliente por su numero
+	void listarClientes();        // Listado de todos los clientes
 
-	void realizarTransaccion();
-	void consultarTransacciones();
+	// Metodos para gestionar transacciones
+	void realizarTransaccion();    // Registrar una transaccion para un cliente
+	void consultarTransacciones(); // Consultar transacciones segun criterios
 
 private:
-	Cliente clientes[10];  //10 clientes para que no explote la memoria
-	int numClientes;        //contador de clientes
+	Cliente clientes[100];  // Array fijo para almacenar clientes
+	int numClientes;        // Contador de clientes
 
-	int buscarClientePorDNI(int dni);
+	int buscarClientePorDNI(int dni);  // Metodo auxiliar para buscar un cliente
 };

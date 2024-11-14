@@ -1,9 +1,12 @@
 #include <iostream>
 #include "Banco.h"
+
 using namespace std;
+
 int main() {
 	Banco bancoUCC;
-	short opcion;
+	int opcion;
+
 	do {
 		cout << "--- Menu de Gestion Banco UCC ---" << endl;
 		cout << "1. Registrar Cliente" << endl;
@@ -15,6 +18,7 @@ int main() {
 		cout << "0. Salir" << endl;
 		cout << "Seleccione una opcion: ";
 		cin >> opcion;
+
 		switch (opcion) {
 		case 1:
 			bancoUCC.registrarCliente();
@@ -43,5 +47,6 @@ int main() {
 		}
 		cout << endl;
 	} while (opcion != 0);
+
 	return 0;
 }

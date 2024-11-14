@@ -1,21 +1,26 @@
-#include <iostream>
 #include "Transaccion.h"
-using namespace std;
-Transaccion::Transaccion() : tipoTransaccion(""), monto(0.0), dia(0), mes(0), anio(0) {}
+#include <iostream>
 
-Transaccion::Transaccion(string tipo, double monto, int dia, int mes, int anio)
-	: tipoTransaccion(tipo), monto(monto), dia(dia), mes(mes), anio(anio) {}
+using namespace std;
+
+// Constructor por defecto
+Transaccion::Transaccion() : tipo(""), monto(0.0), dia(0), mes(0), anio(0) {}
+
+// Constructor con parámetros
+Transaccion::Transaccion(std::string tipo, double monto, int dia, int mes, int anio)
+	: tipo(tipo), monto(monto), dia(dia), mes(mes), anio(anio) {}
 
 void Transaccion::mostrarTransaccion() {
-	cout << tipoTransaccion << " de $" << monto << " el dia " << dia << "/" << mes << "/" << anio << endl;
+	cout << tipo << " de $" << monto << " el dia " << dia << "/" << mes << "/" << anio << endl;
 }
 
-string Transaccion::getTipo()  {
-	return tipoTransaccion;
+// Getters y Setters
+std::string Transaccion::getTipo()  {
+	return tipo;
 }
 
-void Transaccion::setTipoTransaccion(string tipoTransaccion) {
-	this->tipoTransaccion = tipoTransaccion;
+void Transaccion::setTipoTransaccion(std::string tipoTransaccion) {
+	this->tipo = tipoTransaccion;
 }
 
 double Transaccion::getMonto()  {

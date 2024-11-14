@@ -1,10 +1,16 @@
-#include <iostream>
 #include "Cuenta.h"
+#include <iostream>
+
 using namespace std;
+
+
 //bob el constructor
 Cuenta::Cuenta() : saldo(0.0), tipoCuenta("Desconocida"), numTransacciones(0) {}
 Cuenta::Cuenta(double saldoInicial, string tipoCuenta)
     : saldo(saldoInicial), tipoCuenta(tipoCuenta), numTransacciones(0) {}
+
+
+// Métodos de operaciones con transacciones
 void Cuenta::depositar(double monto, int dia, int mes, int anio) {
     saldo += monto;
     if (numTransacciones < 100) {
@@ -13,6 +19,7 @@ void Cuenta::depositar(double monto, int dia, int mes, int anio) {
         cout << "No se pueden registrar mas transacciones en esta cuenta." << endl;
     }
 }
+
 void Cuenta::extraer(double monto, int dia, int mes, int anio) {
     saldo -= monto;  // La verificación de saldo se hace antes
     if (numTransacciones < 100) {
@@ -57,6 +64,8 @@ void Cuenta::mostrarTransaccionesPorAnio(int anio) {
         cout << "No hay transacciones para ese anio." << endl;
     }
 }
+
+// Getters y Setters
 string Cuenta::getTipoCuenta()  {
     return tipoCuenta;
 }

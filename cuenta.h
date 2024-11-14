@@ -1,24 +1,27 @@
-#include <string>
 #include "Transaccion.h"
-using namespace std;
+#include <string>
+
 class Cuenta {
 public:
 	Cuenta();
-	Cuenta(double saldoInicial, string tipoCuenta);
+	Cuenta(double saldoInicial, std::string tipoCuenta);
 	void depositar(double monto, int dia, int mes, int anio);
 	void extraer(double monto, int dia, int mes, int anio);
+
 	void mostrarTransacciones();
 	void mostrarTransaccionesPorMes(int mes, int anio);
 	void mostrarTransaccionesPorAnio(int anio);
-	string getTipoCuenta() ;
-	void setTipoCuenta(string tipoCuenta);
+
+	// Getters y Setters
+	std::string getTipoCuenta() ;
+	void setTipoCuenta(std::string tipoCuenta);
 	double getSaldo() ;
 	void setSaldo(double saldo);
 
 private:
-	string tipoCuenta;
+	std::string tipoCuenta; // "Pesos" o "Dolares"
 	double saldo;
-	Transaccion transacciones[10]; //10 transacciones max para que no explote la ram
-	int numTransacciones;
+	Transaccion transacciones[100];  // Array fijo de transacciones
+	int numTransacciones; // Contador de transacciones
 };
 

@@ -1,38 +1,27 @@
 #include "TarjetaCredito.h"
 #include <iostream>
 using namespace std;
-
-TarjetaCredito::TarjetaCredito() : tipoTarjeta("Ninguna"), limite(0.0)
-{
-}
+TarjetaCredito::TarjetaCredito() : tipoTarjeta("Ninguna"), limite(0.0) {}
 
 TarjetaCredito::TarjetaCredito(string tipoTarjeta, double limite)
-	: tipoTarjeta(tipoTarjeta), limite(limite)
-{
-}
+	: tipoTarjeta(tipoTarjeta), limite(limite) {}
 
-string TarjetaCredito::getTipoTarjeta()
-{
+string TarjetaCredito::getTipoTarjeta()  {
 	return tipoTarjeta;
 }
 
-void TarjetaCredito::setTipoTarjeta(string tipoTarjeta)
-{
+void TarjetaCredito::setTipoTarjeta(string tipoTarjeta) {
 	this->tipoTarjeta = tipoTarjeta;
 }
 
-double TarjetaCredito::getLimite()
-{
+double TarjetaCredito::getLimite()  {
 	return limite;
 }
 
-void TarjetaCredito::setLimite(double limite)
-{
+void TarjetaCredito::setLimite(double limite) {
 	this->limite = limite;
 }
-
-void TarjetaCredito::mostrarTarjeta()
-{
+void TarjetaCredito::mostrarTarjeta() {
 	cout << "Tipo de Tarjeta: " << tipoTarjeta << endl;
 	cout << "Limite de Credito: $" << limite << endl;
 }
