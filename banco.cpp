@@ -6,7 +6,7 @@ using namespace std;
 Banco::Banco() : numClientes(0) {}//cero porque es el constructor por defecto
 
 void Banco::registrarCliente() {
-    if (numClientes >= 100) {//aca creo que deberiamos poner la longitud del array en vez de hardcodearlo pero bueno
+    if (numClientes >= 10) {//aca creo que deberiamos poner la longitud del array en vez de hardcodearlo pero bueno
         cout << "No se pueden registrar mas clientes." << endl;
         return;
     }
@@ -23,10 +23,10 @@ void Banco::registrarCliente() {
     }
 
     cout << "Ingrese Nombre: ";
-    getline(cin, nombre);
+    cin>>nombre;
 
     cout << "Ingrese Tipo de Cliente (PLATA, ORO, PLATINO): ";
-    getline(cin, tipoCliente);
+    cin>>tipoCliente;
 
     //validamos tipo de cliente
     if (tipoCliente != "PLATA" && tipoCliente != "ORO" && tipoCliente != "PLATINO") {
