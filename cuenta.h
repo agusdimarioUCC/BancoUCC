@@ -4,7 +4,7 @@
 class Cuenta {
 public:
 	Cuenta();
-	Cuenta(double saldoInicial, std::string tipoCuenta);
+	Cuenta(double saldoInicial, string tipoCuenta);
 	void depositar(double monto, int dia, int mes, int anio);
 	void extraer(double monto, int dia, int mes, int anio);
 
@@ -13,13 +13,13 @@ public:
 	void mostrarTransaccionesPorAnio(int anio);
 
 	// Getters y Setters
-	std::string getTipoCuenta() ;
-	void setTipoCuenta(std::string tipoCuenta);
+	string getTipoCuenta() ;
+	void setTipoCuenta(string tipoCuenta);
 	double getSaldo() ;
 	void setSaldo(double saldo);
 
 private:
-	std::string tipoCuenta; // "Pesos" o "Dolares"
+	string tipoCuenta; // "Pesos" o "Dolares"
 	double saldo;
 	Transaccion transacciones[100];  // Array fijo de transacciones
 	int numTransacciones; // Contador de transacciones

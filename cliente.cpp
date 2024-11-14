@@ -3,20 +3,15 @@
 
 using namespace std;
 
-// Constructor por defecto
 Cliente::Cliente() : dni(0), nombre(""), tipoCliente(""), anioIngreso(0), activo(true) ,tarjeta(){}
 
-// Constructor
 Cliente::Cliente(int dni, string nombre, string tipoCliente, int anioIngreso)
     : dni(dni), nombre(nombre), tipoCliente(tipoCliente), anioIngreso(anioIngreso), activo(true),tarjeta() {
     // Inicializar las cuentas de ahorro en pesos y dolares
     cajasDeAhorro[0] = Cuenta(0.0, "Pesos");
     cajasDeAhorro[1] = Cuenta(0.0, "Dolares");
     asignarTarjetaCredito();
-
 }
-
-// Getters y Setters
 
 int Cliente::getDni()  {
     return dni;
@@ -34,11 +29,11 @@ void Cliente::setNombre(string nombre) {
     this->nombre = nombre;
 }
 
-std::string Cliente::getTipoCliente()  {
+string Cliente::getTipoCliente()  {
     return tipoCliente;
 }
 
-void Cliente::setTipoCliente(std::string tipoCliente) {
+void Cliente::setTipoCliente(string tipoCliente) {
     this->tipoCliente = tipoCliente;
 }
 
@@ -50,7 +45,7 @@ void Cliente::setAnioIngreso(int anioIngreso) {
     this->anioIngreso = anioIngreso;
 }
 
-bool Cliente::isActivo()  {
+bool Cliente::isActivo()  {//esto nos sirve despues, es necesario
     return activo;
 }
 
@@ -125,13 +120,12 @@ void Cliente::consultarTransacciones() {
         cout << "Opción no válida."<<endl;
         return;
     }
-
     Cuenta cuenta = cajasDeAhorro[opcionCuenta - 1];
 
     int criterio;
-    cout << "Seleccione el criterio de consulta:\n";
-    cout << "1. Mes específico\n";
-    cout << "2. Anio especifico\n";
+    cout << "Seleccione el criterio de consulta:"<<endl;
+    cout << "1. Mes específico"<<endl;
+    cout << "2. Anio especifico"<<endl;
     cout << "3. Todas las operaciones\n";
     cout << "Seleccione una opcion: ";
     cin >> criterio;
@@ -171,7 +165,7 @@ void Cliente::asignarTarjetaCredito() {
         tarjeta = TarjetaCredito("Premium", 500000.0);
     }
     else {
-        tarjeta = TarjetaCredito(); // "Ninguna" y límite 0
+        tarjeta = TarjetaCredito(); // constructor por defecto PLATA
     }
 }
 

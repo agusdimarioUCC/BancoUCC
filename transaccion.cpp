@@ -7,7 +7,7 @@ using namespace std;
 Transaccion::Transaccion() : tipo(""), monto(0.0), dia(0), mes(0), anio(0) {}
 
 // Constructor con parámetros
-Transaccion::Transaccion(std::string tipo, double monto, int dia, int mes, int anio)
+Transaccion::Transaccion(string tipo, double monto, int dia, int mes, int anio)
 	: tipo(tipo), monto(monto), dia(dia), mes(mes), anio(anio) {}
 
 void Transaccion::mostrarTransaccion() {
@@ -15,11 +15,11 @@ void Transaccion::mostrarTransaccion() {
 }
 
 // Getters y Setters
-std::string Transaccion::getTipo()  {
+string Transaccion::getTipo()  {
 	return tipo;
 }
 
-void Transaccion::setTipoTransaccion(std::string tipoTransaccion) {
+void Transaccion::setTipoTransaccion(string tipoTransaccion) {
 	this->tipo = tipoTransaccion;
 }
 

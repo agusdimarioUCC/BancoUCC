@@ -5,7 +5,7 @@
 class Cliente {
 public:
 	Cliente();
-	Cliente(int dni, std::string nombre, string tipoCliente, int anioIngreso);
+	Cliente(int dni, string nombre, string tipoCliente, int anioIngreso);
 	void realizarTransaccion();
 	void consultarTransacciones();
 	void consultarCuenta();
@@ -15,10 +15,10 @@ public:
 	// Getters y Setters
 	int getDni() ;
 	void setDni(int dni);
-	std::string getNombre() ;
-	void setNombre(std::string nombre);
-	std::string getTipoCliente() ;
-	void setTipoCliente(std::string tipoCliente);
+	string getNombre() ;
+	void setNombre(string nombre);
+	string getTipoCliente() ;
+	void setTipoCliente(string tipoCliente);
 	int getAnioIngreso() ;
 	void setAnioIngreso(int anioIngreso);
 	bool isActivo() ;
@@ -26,8 +26,8 @@ public:
 
 private:
 	int dni;
-	std::string nombre;
-	std::string tipoCliente;
+	string nombre;
+	string tipoCliente;
 	int anioIngreso;
 	bool activo;
 	Cuenta cajasDeAhorro[2];  // en pesos y en dolares

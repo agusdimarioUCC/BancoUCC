@@ -2,26 +2,23 @@
 #include <iostream>
 
 using namespace std;
+//aca hacemos basicamente lo divertido
+Banco::Banco() : numClientes(0) {}//cero porque es el constructor por defecto
 
-Banco::Banco() : numClientes(0) {}
-
-// Metodo para registrar un nuevo cliente
 void Banco::registrarCliente() {
-    if (numClientes >= 100) {
+    if (numClientes >= 100) {//aca creo que deberiamos poner la longitud del array en vez de hardcodearlo pero bueno
         cout << "No se pueden registrar mas clientes." << endl;
         return;
     }
 
-    int dni, anioIngreso;
+    int dniINGRESADO, anioIngreso;
     string nombre, tipoCliente;
 
     cout << "Ingrese DNI: ";
-    cin >> dni;
-    cin.ignore();  // Limpiar el buffer de entrada
+    cin >> dniINGRESADO;
 
-    // Verificar si el cliente ya existe
-    if (buscarClientePorDNI(dni) != -1) {
-        cout << "El cliente con DNI " << dni << " ya esta registrado." << endl;
+    if (buscarClientePorDNI(dniINGRESADO) != -1) {
+        cout << "El cliente con DNI " << dniINGRESADO << " ya esta registrado." << endl;
         return;
     }
 
@@ -31,7 +28,7 @@ void Banco::registrarCliente() {
     cout << "Ingrese Tipo de Cliente (PLATA, ORO, PLATINO): ";
     getline(cin, tipoCliente);
 
-    // Validar tipo de cliente
+    //validamos tipo de cliente
     if (tipoCliente != "PLATA" && tipoCliente != "ORO" && tipoCliente != "PLATINO") {
         cout << "Tipo de cliente no valido. Debe ser PLATA, ORO o PLATINO." << endl;
         return;
@@ -40,30 +37,28 @@ void Banco::registrarCliente() {
     cout << "Ingrese Anio de Ingreso: ";
     cin >> anioIngreso;
 
-    clientes[numClientes++] = Cliente(dni, nombre, tipoCliente, anioIngreso);
+    clientes[numClientes++] = Cliente(dniINGRESADO, nombre, tipoCliente, anioIngreso);
     cout << "Cliente registrado exitosamente." << endl;
 }
 
-// Metodo para cambiar el estado de un cliente (Activo a Baja)
 void Banco::cambiarEstadoCliente() {
     int dni;
     cout << "Ingrese el DNI del cliente a dar de baja: ";
     cin >> dni;
 
     int indice = buscarClientePorDNI(dni);
-    if (indice != -1) {
+    if (indice != -1) {//tremendo bardo para buscar por dni
         if (!clientes[indice].isActivo()) {
             cout << "El cliente ya esta dado de baja." << endl;
             return;
         }
-        clientes[indice].setActivo(false);
+        clientes[indice].setActivo(false);//usamos el setter para cambiar el estado
         cout << "El cliente ha sido dado de baja." << endl;
     } else {
         cout << "Cliente no encontrado." << endl;
     }
 }
 
-// Metodo para mostrar detalles de un cliente
 void Banco::mostrarCliente() {
     int dni;
     cout << "Ingrese el DNI del cliente: ";
@@ -76,7 +71,7 @@ void Banco::mostrarCliente() {
         cout << "Nombre: " << cliente.getNombre() << endl;
         cout << "Tipo de Cliente: " << cliente.getTipoCliente() << endl;
         cout << "Anio de Ingreso: " << cliente.getAnioIngreso() << endl;
-        cout << "Estado: " << (cliente.isActivo() ? "Activo" : "Baja") << endl;
+        cout << "Estado: " << (cliente.isActivo() ? "Activo" : "Baja") << endl;//esto es un operador ternario para simplificar un if-else en una linea
         cliente.consultarCuenta();
         cliente.mostrarTarjetaCredito();
     } else {
@@ -119,7 +114,6 @@ void Banco::realizarTransaccion() {
     }
 }
 
-// Metodo para consultar transacciones de un cliente
 void Banco::consultarTransacciones() {
     int dni;
     cout << "Ingrese el DNI del cliente: ";
@@ -133,7 +127,6 @@ void Banco::consultarTransacciones() {
     }
 }
 
-// Metodo auxiliar para buscar un cliente por DNI
 int Banco::buscarClientePorDNI(int dni) {
     for (int i = 0; i < numClientes; ++i) {
         if (clientes[i].getDni() == dni) {
